@@ -1,0 +1,63 @@
+// ===== Grupo i9 — scripts compartilhados =====
+// TROQUE o número aqui se mudar o WhatsApp:
+var I9_WA = "5585999999999";
+
+(function () {
+  // menu mobile
+  var burger = document.getElementById("burger");
+  var menu = document.getElementById("menu");
+  if (burger && menu) {
+    burger.addEventListener("click", function () { menu.classList.toggle("open"); });
+    menu.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () { menu.classList.remove("open"); });
+    });
+  }
+
+  // FAQ acordeão
+  document.querySelectorAll(".q button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var q = b.parentElement, ans = q.querySelector(".ans"), open = q.classList.contains("open");
+      document.querySelectorAll(".q").forEach(function (o) {
+        o.classList.remove("open"); o.querySelector(".ans").style.maxHeight = null;
+      });
+      if (!open) { q.classList.add("open"); ans.style.maxHeight = ans.scrollHeight + "px"; }
+    });
+  });
+
+  // reveal on scroll
+  if (!window.matchMedia || !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+  }
+
+  // formulário -> WhatsApp (sem backend)
+  var form = document.getElementById("leadForm");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var nome = (form.nome.value || "").trim();
+      var fone = (form.fone.value || "").trim();
+      var local = (form.local.value || "").trim();
+      var servico = form.servico.value || "";
+      var det = (form.detalhe ? form.detalhe.value : "").trim();
+      var pagina = form.getAttribute("data-pagina") || "site";
+
+      var msg = "Olá! Quero atendimento para um desentupimento.\n";
+      if (nome) msg += "\nNome: " + nome;
+      if (fone) msg += "\nTelefone: " + fone;
+      if (local) msg += "\nCidade/Bairro: " + local;
+      if (servico) msg += "\nServiço: " + servico;
+      if (det) msg += "\nDetalhes: " + det;
+      msg += "\n\nOrigem: " + pagina; // rastreio de origem do lead
+
+      var url = "https://wa.me/" + I9_WA +
+        "?text=" + encodeURIComponent(msg) +
+        "&utm_source=site&utm_medium=whatsapp&utm_campaign=" + encodeURIComponent(pagina);
+      window.open(url, "_blank");
+    });
+  }
+})();

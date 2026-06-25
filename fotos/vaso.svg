@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Vaso sanitário">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16306f"/><stop offset="1" stop-color="#2a55b8"/></linearGradient>
+<linearGradient id="flo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d3a86"/><stop offset="1" stop-color="#142a63"/></linearGradient>
+<radialGradient id="lit" cx="0.3" cy="0.15" r="0.9"><stop offset="0" stop-color="#5b86e6" stop-opacity="0.55"/><stop offset="1" stop-color="#5b86e6" stop-opacity="0"/></radialGradient>
+<linearGradient id="o" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FF9F1C"/><stop offset="1" stop-color="#FF7A00"/></linearGradient></defs>
+<rect width="800" height="600" fill="url(#sky)"/><rect width="800" height="600" fill="url(#lit)"/>
+<circle cx="660" cy="120" r="150" fill="#fff" opacity="0.05"/><circle cx="120" cy="470" r="180" fill="#fff" opacity="0.04"/>
+<rect x="0" y="430" width="800" height="170" fill="url(#flo)"/><rect x="0" y="430" width="800" height="4" fill="#FF9F1C" opacity="0.8"/>
+<g stroke="#fff" stroke-width="9" fill="none" stroke-linejoin="round">
+<rect x="250" y="170" width="300" height="260" fill="#26489c" stroke="none"/>
+<path d="M345 235h150v22a72 72 0 0 1-150 0z" fill="#eaf1ff" stroke="#fff"/>
+<path d="M372 322l-16 86h120l-16-86" fill="#eaf1ff" stroke="#fff"/>
+<rect x="350" y="200" width="140" height="20" fill="#dfeaff" stroke="#fff"/>
+<path d="M356 420h120" stroke="#FF9F1C" stroke-width="12"/></g>
+<rect x="0" y="560" width="800" height="40" fill="url(#o)"/>
+<text x="40" y="588" fill="#fff" font-family="Poppins,Arial,sans-serif" font-size="28" font-weight="700">Vaso sanitário</text>
+</svg>

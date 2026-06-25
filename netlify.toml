@@ -1,0 +1,9 @@
+[build]
+  publish = "."
+
+# URLs amigáveis: /desentupidora-caucaia em vez de .html
+[[redirects]]
+  from = "/*.html"
+  to   = "/:splat"
+  status = 301
+  force = false

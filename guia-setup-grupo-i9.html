@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grupo i9 — Guia de Setup: Google, Avaliações, Citações e Medição</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#07223A;--blue:#0B4F8A;--petrol:#0E5A6B;--cyan:#18B6C9;--ink:#0A1F2B;--body:#33474E;--muted:#6A7B82;
+  --bg:#F5FAFB;--white:#fff;--line:#dbe7eb;--soft:#EAF7FA;--wa:#16a34a;--amber:#FF8A00;
+  --g-deep:linear-gradient(135deg,#07223A 0%,#0B4F8A 52%,#0E6E7A 100%);
+  --g-accent:linear-gradient(135deg,#18B6C9 0%,#1565C0 100%);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Inter',sans-serif;color:var(--body);background:#eef4f6;font-size:16px;line-height:1.65}
+.page{max-width:880px;margin:0 auto;background:#fff}
+h1,h2,h3,h4{font-family:'Sora',sans-serif;color:var(--ink);line-height:1.18;margin:0}
+a{color:var(--blue)}
+.cover{background:var(--g-deep);color:#dff0f3;padding:54px 56px;position:relative;overflow:hidden}
+.cover:before{content:"";position:absolute;inset:0;background:radial-gradient(540px 280px at 88% 0,rgba(24,182,201,.3),transparent 60%)}
+.cover>*{position:relative;z-index:2}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.brand .b{width:44px;height:44px;border-radius:12px;background:var(--g-accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:800;font-size:18px}
+.brand b{font-family:'Sora';font-weight:700;font-size:20px;color:#fff}.brand small{display:block;font-size:10.5px;letter-spacing:.18em;color:#9dc2c9;text-transform:uppercase}
+.cover h1{color:#fff;font-size:34px;font-weight:800;max-width:20ch}
+.cover p{color:#aecdd4;font-size:17px;margin:14px 0 0;max-width:60ch}
+.cover .tag{display:inline-block;margin-top:22px;font-family:'Sora';font-weight:600;font-size:12.5px;color:#bdeef5;background:rgba(24,182,201,.16);border:1px solid rgba(24,182,201,.4);padding:7px 14px;border-radius:100px}
+.body{padding:44px 56px}
+.toc{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:24px 28px;margin-bottom:40px}
+.toc b{font-family:'Sora';color:var(--ink);font-size:13px;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:12px}
+.toc ol{margin:0;padding-left:20px;columns:2;column-gap:34px}
+.toc li{margin-bottom:7px;font-size:14.5px}
+.toc a{color:var(--body);text-decoration:none}.toc a:hover{color:var(--blue)}
+section{margin-bottom:46px;scroll-margin-top:20px}
+.sec-h{display:flex;align-items:flex-start;gap:16px;margin-bottom:18px;padding-bottom:14px;border-bottom:2px solid var(--soft)}
+.sec-h .num{flex:0 0 auto;width:42px;height:42px;border-radius:11px;background:var(--g-accent);color:#fff;font-family:'Sora';font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center}
+.sec-h h2{font-size:24px;padding-top:5px}
+h3{font-size:18px;margin:26px 0 10px;color:var(--petrol)}
+p{margin:0 0 13px}
+ul,ol{margin:0 0 14px;padding-left:22px}li{margin-bottom:8px}
+.steps{list-style:none;counter-reset:s;padding:0}
+.steps>li{counter-increment:s;position:relative;padding:0 0 16px 44px;margin:0}
+.steps>li:before{content:counter(s);position:absolute;left:0;top:-2px;width:28px;height:28px;border-radius:8px;background:var(--ink);color:#fff;font-family:'Sora';font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.steps>li:not(:last-child):after{content:"";position:absolute;left:13px;top:30px;bottom:2px;width:2px;background:var(--line)}
+.steps b{color:var(--ink)}
+.box{background:var(--soft);border-left:4px solid var(--cyan);border-radius:0 12px 12px 0;padding:16px 20px;margin:16px 0;font-size:14.5px}
+.box b{color:var(--ink)}
+.box.warn{background:#FFF6EC;border-left-color:var(--amber)}
+.box.win{background:#EEFBF2;border-left-color:var(--wa)}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px}
+th,td{text-align:left;padding:10px 12px;border:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-family:'Sora';font-size:12.5px;color:var(--ink)}
+tr:nth-child(even) td{background:#fafdfe}
+.tag-pri{display:inline-block;background:var(--g-accent);color:#fff;font-size:11px;font-weight:600;padding:2px 8px;border-radius:100px;font-family:'Sora'}
+.tag-sec{display:inline-block;background:#e4edf1;color:var(--blue);font-size:11px;font-weight:600;padding:2px 8px;border-radius:100px;font-family:'Sora'}
+.kpi{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:14px 0}
+.kpi div{background:#fff;border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+.kpi b{font-family:'Sora';color:var(--ink);font-size:14px;display:block}.kpi span{font-size:13px;color:var(--muted)}
+.foot{background:var(--navy);color:#8fb0bb;padding:30px 56px;font-size:13px}
+.foot b{color:#fff;font-family:'Sora'}
+.chk{list-style:none;padding:0}.chk li{position:relative;padding-left:30px;margin-bottom:9px}
+.chk li:before{content:"";position:absolute;left:0;top:2px;width:18px;height:18px;border-radius:5px;border:2px solid var(--cyan)}
+code{background:#eef4f6;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:13px;color:var(--petrol)}
+@media(max-width:680px){.body,.cover,.foot{padding-left:24px;padding-right:24px}.toc ol{columns:1}.kpi{grid-template-columns:1fr}}
+@media print{body{background:#fff}.page{max-width:none}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="cover">
+  <div class="brand"><span class="b">i9</span><span><b>Grupo i9</b><small>Desentupidora</small></span></div>
+  <h1>Guia de Setup: Google, Avaliações, Citações e Medição</h1>
+  <p>O passo a passo completo para o site da Grupo i9 virar máquina de leads em Fortaleza e região — do Perfil no Google ao painel de resultados.</p>
+  <span class="tag">Documento operacional · uso interno da agência/cliente</span>
+</div>
+
+<div class="body">
+
+  <div class="toc">
+    <b>O que tem neste guia</b>
+    <ol>
+      <li><a href="#s1">Perfil da Empresa no Google (GBP)</a></li>
+      <li><a href="#s2">Motor de avaliações</a></li>
+      <li><a href="#s3">Citações locais (NAP)</a></li>
+      <li><a href="#s4">Backlinks locais</a></li>
+      <li><a href="#s5">Medição e analytics</a></li>
+      <li><a href="#s6">Técnico e indexação</a></li>
+      <li><a href="#s7">Google Ads em paralelo</a></li>
+      <li><a href="#s8">Cronograma e checklist</a></li>
+    </ol>
+  </div>
+
+  <div class="box win"><b>Antes de tudo — padronize o NAP.</b> Defina de uma vez o <b>Nome</b>, <b>Endereço</b> e <b>Telefone</b> oficiais e escreva exatamente igual em TODO lugar (Google, site, redes, diretórios). Ex.: <code>Desentupidora Grupo i9</code> · <code>[Rua, nº, bairro, Fortaleza/CE, CEP]</code> · <code>(85) 99999-9999</code>. Inconsistência de NAP é o erro nº 1 que derruba ranqueamento local.</div>
+
+  <!-- 1 GBP -->
+  <section id="s1">
+    <div class="sec-h"><span class="num">1</span><h2>Perfil da Empresa no Google (GBP)</h2></div>
+    <p>É a peça mais importante do SEO local. É o que faz a empresa aparecer no mapa e no “pacote local” (as 3 empresas que surgem com estrelas) quando alguém busca “desentupidora perto de mim”. Prioridade máxima.</p>
+
+    <h3>1.1 Criar / reivindicar o perfil</h3>
+    <ol class="steps">
+      <li>Acesse <b>google.com/business</b> com a conta Google oficial da empresa (crie uma só pra isso, ex. contato@grupoi9...).</li>
+      <li>Digite o nome <b>Desentupidora Grupo i9</b>. Se já existir (criado automático pelo Google), clique em <b>“É a sua empresa? Reivindicar”</b>.</li>
+      <li>Escolha o tipo de negócio: marque <b>prestador de serviço / atende no endereço do cliente</b> (service-area business).</li>
+    </ol>
+
+    <h3>1.2 Verificação</h3>
+    <p>O Google precisa confirmar que a empresa é real. As opções aparecem conforme o caso: <b>vídeo</b> (mais comum hoje — gravar fachada, equipamento, veículo e documento), <b>código por SMS/ligação</b>, ou <b>carta com código</b> pelo correio. Faça assim que pedir; sem verificação, o perfil não ranqueia.</p>
+    <div class="box warn"><b>Atenção:</b> na verificação por vídeo, mostre placa do veículo com a marca, equipamentos, e algo que prove o endereço. Grave em um take só, sem cortes.</div>
+
+    <h3>1.3 Categorias</h3>
+    <table>
+      <tr><th>Tipo</th><th>Categoria</th></tr>
+      <tr><td><span class="tag-pri">Principal</span></td><td>Serviço de desentupimento</td></tr>
+      <tr><td><span class="tag-sec">Secundárias</span></td><td>Encanador · Serviço de saneamento · Empreiteiro de esgoto</td></tr>
+    </table>
+    <p>A categoria principal pesa muito. Use “Serviço de desentupimento”; adicione as secundárias que existirem na lista do Google conforme os serviços reais.</p>
+
+    <h3>1.4 Informações (NAP, área e horário)</h3>
+    <ul>
+      <li><b>Nome:</b> exatamente <b>Desentupidora Grupo i9</b> (não encha de palavra-chave, isso é punível).</li>
+      <li><b>Telefone:</b> o mesmo do site, <b>(85) 99999-9999</b>. Se usar número de rastreio (ver seção 5), coloque-o como principal e o real como secundário.</li>
+      <li><b>Endereço:</b> como atende no cliente, você pode <b>ocultar o endereço</b> e exibir só a área. Tenha um endereço real cadastrado mesmo oculto.</li>
+      <li><b>Área de atendimento:</b> cadastre as 6 cidades — <b>Fortaleza, Caucaia, Maracanaú, Maranguape, Aquiraz e Eusébio</b>.</li>
+      <li><b>Horário:</b> marque <b>Aberto 24 horas</b> nos 7 dias (bate com a promessa do site).</li>
+      <li><b>Site:</b> use o link com UTM (seção 5) para medir os cliques vindos do Google.</li>
+    </ul>
+
+    <h3>1.5 Serviços e descrição</h3>
+    <p>Cadastre cada serviço como item separado (Desentupimento de esgoto, de pia, de ralo, de vaso, de coluna, Limpeza de caixa de gordura, Hidrojateamento, Vídeo inspeção), cada um com uma descrição curta. Na descrição da empresa (750 caracteres), repita naturalmente: desentupidora 24h em Fortaleza e região, preço fechado, sem quebrar, garantia, nota fiscal.</p>
+
+    <h3>1.6 Fotos e vídeos</h3>
+    <ul>
+      <li>Logo e capa, equipe uniformizada, veículos com a marca, equipamentos (hidrojato), antes/depois de serviços (com autorização).</li>
+      <li><b>10–20 fotos reais</b> no lançamento; depois, 2–3 novas por semana. Perfis com fotos recebem muito mais cliques.</li>
+      <li>Geo-marque as fotos sempre que possível (tiradas no celular já vêm com localização).</li>
+    </ul>
+
+    <h3>1.7 Posts, Perguntas e Mensagens</h3>
+    <ul>
+      <li><b>Posts (Novidades/Ofertas):</b> publique 1×/semana — dica de prevenção, serviço em destaque, “atendemos 24h em [cidade]”. Sempre com botão e link pro WhatsApp/serviço.</li>
+      <li><b>Perguntas e respostas:</b> você mesmo pode publicar perguntas e respondê-las (FAQ semeada): “Atendem 24h?”, “Quebram parede?”, “Quanto custa?”.</li>
+      <li><b>Mensagens:</b> ative e direcione pro WhatsApp; responda rápido (o tempo de resposta conta).</li>
+      <li><b>Atributos:</b> marque os que se aplicam (atendimento online, orçamento on-line, etc.).</li>
+    </ul>
+    <div class="box"><b>Rotina mínima de GBP:</b> responder todas as avaliações, 1 post/semana, 2–3 fotos/semana, conferir se o Google não alterou nome/categoria sozinho.</div>
+  </section>
+
+  <!-- 2 reviews -->
+  <section id="s2">
+    <div class="sec-h"><span class="num">2</span><h2>Motor de avaliações</h2></div>
+    <p>Avaliações são o segundo fator local mais forte e o que mais convence o cliente com medo de cair em golpe. Meta: fluxo constante de avaliações novas, não um pico isolado.</p>
+
+    <h3>2.1 O link curto de avaliação</h3>
+    <ol class="steps">
+      <li>No GBP, pegue o link <b>“Pedir avaliações”</b> (formato <code>g.page/r/...</code>).</li>
+      <li>Encurte com um domínio próprio fácil de ditar, ex.: <code>grupoi9.com.br/avaliar</code> (redirecionando pro link do Google).</li>
+      <li>Gere um <b>QR Code</b> desse link.</li>
+    </ol>
+
+    <h3>2.2 Onde usar</h3>
+    <ul>
+      <li><b>QR Code</b> impresso na nota/recibo, no carro e num cartão que o técnico entrega ao terminar.</li>
+      <li><b>Mensagem pós-serviço no WhatsApp</b>, enviada 1–2h depois: “Tudo certo com o serviço? Se puder, deixe sua avaliação aqui: [link]. Leva 30 segundos e ajuda demais 🙏”.</li>
+      <li>Assinatura de e-mail e bio das redes.</li>
+    </ul>
+
+    <h3>2.3 Boas práticas</h3>
+    <ul>
+      <li>Peça que o cliente <b>cite o bairro/cidade</b> e o serviço (“desentupimento de esgoto em Caucaia”) — isso reforça o SEO local.</li>
+      <li><b>Responda 100% das avaliações</b>, positivas e negativas, em até 24h. Na resposta, mencione o serviço/cidade com naturalidade.</li>
+      <li>Numa avaliação ruim: agradeça, assuma o que for o caso, ofereça resolver. Nunca discuta em público.</li>
+    </ul>
+    <div class="box warn"><b>Nunca</b> compre avaliações nem crie perfis falsos. O Google detecta, remove em massa e pode suspender o perfil. O caminho é volume real e constante.</div>
+  </section>
+
+  <!-- 3 citations -->
+  <section id="s3">
+    <div class="sec-h"><span class="num">3</span><h2>Citações locais (NAP)</h2></div>
+    <p>Citação = qualquer lugar na internet que mostre Nome + Endereço + Telefone da empresa. Quanto mais citações <b>consistentes</b>, mais o Google confia que o negócio é real e local. Use sempre o NAP padronizado.</p>
+
+    <h3>3.1 Onde cadastrar</h3>
+    <table>
+      <tr><th>Plataforma</th><th>Prioridade</th><th>Obs.</th></tr>
+      <tr><td>Perfil da Empresa no Google</td><td><span class="tag-pri">Alta</span></td><td>Já feito na seção 1</td></tr>
+      <tr><td>Bing Places for Business</td><td><span class="tag-pri">Alta</span></td><td>Importa direto do Google</td></tr>
+      <tr><td>Apple Business Connect</td><td><span class="tag-pri">Alta</span></td><td>Aparece no Apple Maps/Siri</td></tr>
+      <tr><td>Facebook (página) + Instagram</td><td><span class="tag-pri">Alta</span></td><td>NAP na bio/sobre</td></tr>
+      <tr><td>WhatsApp Business</td><td><span class="tag-pri">Alta</span></td><td>Perfil, catálogo de serviços, horário</td></tr>
+      <tr><td>GuiaMais / Telelistas</td><td><span class="tag-sec">Média</span></td><td>Diretórios BR tradicionais</td></tr>
+      <tr><td>Apontador</td><td><span class="tag-sec">Média</span></td><td>Diretório local BR</td></tr>
+      <tr><td>Foursquare</td><td><span class="tag-sec">Média</span></td><td>Alimenta vários apps</td></tr>
+      <tr><td>Solubio / GetNinjas / Triider</td><td><span class="tag-sec">Média</span></td><td>Marketplaces de serviço (geram lead também)</td></tr>
+      <tr><td>Listas locais de Fortaleza/CE</td><td><span class="tag-sec">Média</span></td><td>Guias de bairro, associações comerciais</td></tr>
+    </table>
+
+    <h3>3.2 Planilha de controle</h3>
+    <p>Monte uma planilha simples para não perder o fio (e poder corrigir tudo se o telefone mudar):</p>
+    <table>
+      <tr><th>Plataforma</th><th>URL do perfil</th><th>Login</th><th>NAP correto?</th><th>Status</th></tr>
+      <tr><td>Google</td><td>—</td><td>—</td><td>Sim / Não</td><td>Ativo / Pendente</td></tr>
+      <tr><td>Bing</td><td>—</td><td>—</td><td> </td><td> </td></tr>
+      <tr><td>Apple</td><td>—</td><td>—</td><td> </td><td> </td></tr>
+    </table>
+    <div class="box"><b>Consistência &gt; quantidade.</b> 15 citações idênticas valem mais que 50 com nome/telefone trocados. Revise o NAP em cada uma antes de marcar como concluída.</div>
+  </section>
+
+  <!-- 4 backlinks -->
+  <section id="s4">
+    <div class="sec-h"><span class="num">4</span><h2>Backlinks locais</h2></div>
+    <p>Links de outros sites locais apontando pro seu reforçam autoridade. Foque em relevância local, não em volume.</p>
+    <ul>
+      <li><b>Parcerias:</b> imobiliárias, administradoras de condomínio, síndicos, lojas de material de construção, encanadores autônomos — peça menção/link e indique-os de volta.</li>
+      <li><b>Patrocínios locais:</b> time de bairro, evento, igreja, escola — costumam listar patrocinadores com link.</li>
+      <li><b>Imprensa/portais de Fortaleza:</b> pauta tipo “como evitar entupimento no período de chuvas” cedida a portal local.</li>
+      <li><b>Associações:</b> CDL, associações comerciais de bairro, Câmara de dirigentes lojistas.</li>
+      <li><b>Blog próprio</b> (seção 6): conteúdo útil atrai link naturalmente.</li>
+    </ul>
+  </section>
+
+  <!-- 5 measurement -->
+  <section id="s5">
+    <div class="sec-h"><span class="num">5</span><h2>Medição e analytics</h2></div>
+    <p>Sem medir, não dá pra saber o que traz cliente. Configure isto antes de divulgar o site.</p>
+
+    <h3>5.1 Google Analytics 4 (GA4)</h3>
+    <ol class="steps">
+      <li>Crie uma propriedade GA4 e instale a tag em todas as páginas do site (gtag ou Google Tag Manager).</li>
+      <li>Marque como <b>conversões</b> os eventos que representam lead:
+        <ul>
+          <li><b>clique_whatsapp</b> — clique em qualquer botão/flutuante do WhatsApp</li>
+          <li><b>clique_ligar</b> — clique no <code>tel:</code></li>
+          <li><b>envio_form</b> — se houver formulário</li>
+        </ul>
+      </li>
+      <li>Com GTM: crie gatilhos por clique em links <code>wa.me</code> e <code>tel:</code> e dispare os eventos acima.</li>
+    </ol>
+    <div class="box"><b>Por página:</b> como cada serviço e cidade tem URL própria, o GA4 mostra <b>quais páginas geram mais cliques de WhatsApp</b> — ouro pra decidir onde investir.</div>
+
+    <h3>5.2 Google Search Console (GSC)</h3>
+    <ul>
+      <li>Verifique o domínio, envie o <b>sitemap.xml</b> (seção 6).</li>
+      <li>Acompanhe por quais buscas você aparece, posição média e cliques. Ache “quase lá” (posição 8–15) pra reforçar.</li>
+      <li>Use a inspeção de URL pra forçar indexação de páginas novas.</li>
+    </ul>
+
+    <h3>5.3 Rastreio de WhatsApp e ligações</h3>
+    <ul>
+      <li><b>UTM no link do site dentro do GBP:</b> ex. <code>?utm_source=google&utm_medium=organic&utm_campaign=gbp</code> — separa quem veio do Perfil do Google.</li>
+      <li><b>Call tracking</b> (opcional, recomendado): número de rastreio que toca no mesmo telefone, mostrando quantas ligações vieram do site/Google/Ads.</li>
+      <li>Mensagens pré-preenchidas diferentes por página (já estão no site) ajudam a saber de onde veio o lead pelo texto inicial.</li>
+    </ul>
+
+    <h3>5.4 Rank tracking</h3>
+    <p>Acompanhe semanalmente a posição para as buscas-alvo por cidade/serviço (ex. “desentupidora Caucaia”, “ Maranguape”, “hidrojateamento Fortaleza”). Ferramentas: GSC (grátis) ou um rank tracker local.</p>
+
+    <h3>5.5 Painel mensal de leads</h3>
+    <div class="kpi">
+      <div><b>Leads no mês</b><span>WhatsApp + ligações + form</span></div>
+      <div><b>Origem</b><span>Google orgânico / GBP / Ads / redes</span></div>
+      <div><b>Página que mais converteu</b><span>qual cidade/serviço</span></div>
+      <div><b>CPL</b><span>custo por lead (se houver Ads)</span></div>
+      <div><b>Avaliações novas</b><span>e nota média</span></div>
+      <div><b>Posição média</b><span>nas buscas-alvo</span></div>
+    </div>
+  </section>
+
+  <!-- 6 technical -->
+  <section id="s6">
+    <div class="sec-h"><span class="num">6</span><h2>Técnico e indexação</h2></div>
+    <h3>6.1 sitemap.xml</h3>
+    <p>Liste todas as páginas (home, 6 cidades, serviços, blog). Modelo:</p>
+    <table><tr><th>URL</th></tr>
+      <tr><td>/ (home)</td></tr><tr><td>/desentupidora-fortaleza/</td></tr><tr><td>/desentupidora-caucaia/ … (6 cidades)</td></tr>
+      <tr><td>/desentupimento-de-esgoto-fortaleza/ … (serviços)</td></tr><tr><td>/blog/ e posts</td></tr>
+    </table>
+    <p>Envie o sitemap no Search Console (seção 5.2).</p>
+    <h3>6.2 robots.txt</h3>
+    <p>Permita o rastreio e aponte o sitemap:</p>
+    <p><code>User-agent: *</code><br><code>Allow: /</code><br><code>Sitemap: https://www.grupoi9desentupidora.com.br/sitemap.xml</code></p>
+    <h3>6.3 Schema e velocidade</h3>
+    <ul>
+      <li>O JSON-LD já está embutido em cada página (LocalBusiness, Service, BreadcrumbList, FAQPage, AggregateRating). Valide no <b>Rich Results Test</b> do Google após publicar.</li>
+      <li>Otimize imagens (comprimir, WebP) e garanta HTTPS. Acompanhe Core Web Vitals no GSC.</li>
+      <li><b>Blog:</b> 2–4 posts/mês (“como evitar entupimento”, “sinais de cano entupido”) — alimenta SEO e gera links.</li>
+    </ul>
+  </section>
+
+  <!-- 7 ads -->
+  <section id="s7">
+    <div class="sec-h"><span class="num">7</span><h2>Google Ads em paralelo</h2></div>
+    <p>O orgânico (este guia) costuma levar de <b>4 a 8 meses</b> pra maturar. Como desentupimento é urgência e o cliente decide na hora, Ads traz lead <b>desde o dia 1</b> enquanto o orgânico sobe.</p>
+    <ul>
+      <li><b>Rede de Pesquisa</b> com campanhas separadas por cidade e por serviço (palavras como “desentupidora 24h Fortaleza”, “ Maranguape”).</li>
+      <li>Use as <b>mesmas landing pages</b> deste site (cada serviço/cidade já tem a sua) — melhora o Índice de Qualidade e baixa o custo.</li>
+      <li>Ative <b>extensões</b>: chamada, local, frases de destaque (“preço fechado”, “sem quebrar”, “garantia”).</li>
+      <li>Verifique a elegibilidade dos <b>Anúncios de Serviços Locais (Google Garantido)</b> — pagam por lead e aparecem no topo.</li>
+      <li>Marque as conversões (clique WhatsApp/ligar) pra medir CPL e cortar o que não converte.</li>
+    </ul>
+    <div class="box win"><b>Estratégia:</b> Ads forte nos primeiros meses → conforme o orgânico e o GBP amadurecem e trazem lead grátis, reduz-se o investimento em mídia.</div>
+  </section>
+
+  <!-- 8 checklist -->
+  <section id="s8">
+    <div class="sec-h"><span class="num">8</span><h2>Cronograma e checklist</h2></div>
+    <h3>Semana 1 — Fundação</h3>
+    <ul class="chk">
+      <li>Padronizar NAP oficial</li>
+      <li>Publicar o site com as páginas (cidades + serviços) e schema</li>
+      <li>Criar/verificar o Perfil no Google (seção 1)</li>
+      <li>Instalar GA4 + eventos e verificar o Search Console + sitemap</li>
+      <li>Criar link curto + QR de avaliação</li>
+    </ul>
+    <h3>Semana 2–4 — Presença</h3>
+    <ul class="chk">
+      <li>Preencher GBP 100% (serviços, fotos, posts, P&R)</li>
+      <li>Cadastrar Bing, Apple, redes e principais diretórios (seção 3)</li>
+      <li>Ativar mensagem pós-serviço pedindo avaliação</li>
+      <li>Subir campanha de Google Ads por cidade/serviço</li>
+      <li>Publicar os 2 primeiros posts do blog</li>
+    </ul>
+    <h3>Rotina contínua (mensal)</h3>
+    <ul class="chk">
+      <li>Responder todas as avaliações e buscar avaliações novas toda semana</li>
+      <li>1 post/semana no GBP + 2–3 fotos/semana</li>
+      <li>2–4 posts/mês no blog + buscar 1–2 backlinks locais</li>
+      <li>Fechar o painel mensal de leads (seção 5.5) e ajustar Ads</li>
+      <li>Conferir consistência de NAP e ranking das buscas-alvo</li>
+    </ul>
+    <div class="box"><b>Ordem de prioridade se faltar tempo:</b> 1) GBP completo e verificado → 2) avaliações → 3) site no ar com schema + GA4/GSC → 4) citações → 5) Ads → 6) blog/backlinks.</div>
+  </section>
+
+</div>
+
+<div class="foot">
+  <b>Desentupidora Grupo i9</b> — Guia de Setup de presença digital e medição.<br>
+  Substitua os campos entre colchetes (endereço, CEP, CNPJ, telefone, domínio) pelos dados reais antes de executar.
+</div>
+
+</div>
+</body>
+</html>

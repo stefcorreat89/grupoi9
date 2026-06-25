@@ -1,0 +1,34 @@
+SITE DESENTUPIDORA GRUPO i9 — INSTRUÇÕES
+========================================
+
+COMO PUBLICAR NO NETLIFY (mais fácil):
+1. Descompacte este .zip.
+2. Acesse app.netlify.com > Sites > "Add new site" > "Deploy manually".
+3. Arraste a PASTA inteira (com todos os arquivos) para a área de upload.
+4. Pronto: o site sobe. Depois é só conectar seu domínio em Domain settings.
+
+ANTES DE PUBLICAR, TROQUE OS PLACEHOLDERS (estão em todos os arquivos):
+- WhatsApp/telefone: 5585999999999 e (85) 99999-9999
+  (o número fica também em app.js, na variável I9_WA — troque lá também)
+- Domínio nos schemas/sitemap: grupoi9desentupidora.com.br
+- CNPJ: 00.000.000/0001-00
+- Números "+3 mil / +[X] anos" e a nota/avaliações
+- Avaliações: blocos marcados com "AVALIACOES" -> use reviews reais do Google
+- FOTOS: cada espaço de foto é uma div class="shot". Para colocar sua foto:
+    troque por: <div class="shot" style="background-image:url('fotos/SUA-FOTO.jpg')"><div class="seal"><i>i9</i></div></div>
+    (apague a linha <div class="hint">...</div>; o selo "i9" continua no canto)
+  Crie uma pasta "fotos" e coloque as imagens reais da SUA operação.
+  NÃO use fotos de outras desentupidoras — direito autoral e marca de terceiros.
+
+ARQUIVOS:
+- index.html .......... home (formato de conversão)
+- desentupidora-*.html  6 cidades (Fortaleza, Caucaia, Maracanaú, Maranguape, Aquiraz, Eusébio)
+- *-fortaleza.html ..... 7 serviços (esgoto, pia, ralo, vaso, caixa de gordura, hidrojateamento, limpa fossa)
+- styles.css / app.js .. estilo e scripts compartilhados (NÃO renomear)
+- sitemap.xml / robots.txt .. SEO (envie o sitemap no Google Search Console)
+- netlify.toml ......... deixa as URLs amigáveis no Netlify
+- guia-setup-grupo-i9.html .. passo a passo de Google/avaliações/citações/medição
+
+MEDIÇÃO:
+- O formulário e todos os botões já têm rastreio (UTM + origem na mensagem do WhatsApp).
+- Instale GA4 e Search Console seguindo o guia-setup.
