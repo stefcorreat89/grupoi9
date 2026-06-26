@@ -1,6 +1,6 @@
 // ===== Grupo i9 — scripts compartilhados =====
 // TROQUE o número aqui se mudar o WhatsApp:
-var I9_WA = "5585999999999";
+var I9_WA = "5585920091906";
 
 (function () {
   // menu mobile
@@ -60,4 +60,98 @@ var I9_WA = "5585999999999";
       window.open(url, "_blank");
     });
   }
+
+  // depoimentos em carrossel
+  (function () {
+    var track = document.querySelector('.revs-track');
+    if (!track) return;
+    var cards = Array.from(track.children);
+    var prevBtn = document.querySelector('.revs-btn.prev');
+    var nextBtn = document.querySelector('.revs-btn.next');
+    var dotsContainer = document.querySelector('.revs-dots');
+    if (!prevBtn || !nextBtn || !dotsContainer) return;
+    
+    var currentIndex = 0;
+    var cardsPerPage = 3;
+    
+    function updateLayout() {
+      var width = window.innerWidth;
+      if (width <= 600) {
+        cardsPerPage = 1;
+      } else if (width <= 900) {
+        cardsPerPage = 2;
+      } else {
+        cardsPerPage = 3;
+      }
+      
+      var maxIndex = cards.length - cardsPerPage;
+      if (currentIndex > maxIndex) {
+        currentIndex = Math.max(0, maxIndex);
+      }
+      
+      createDots();
+      moveToSlide(currentIndex);
+    }
+    
+    function createDots() {
+      dotsContainer.innerHTML = '';
+      var totalDots = cards.length - cardsPerPage + 1;
+      if (totalDots <= 1) {
+        dotsContainer.style.display = 'none';
+        return;
+      }
+      dotsContainer.style.display = 'flex';
+      for (var i = 0; i < totalDots; i++) {
+        (function (index) {
+          var dot = document.createElement('div');
+          dot.classList.add('revs-dot');
+          if (index === currentIndex) dot.classList.add('active');
+          dot.addEventListener('click', function () {
+            currentIndex = index;
+            moveToSlide(currentIndex);
+          });
+          dotsContainer.appendChild(dot);
+        })(i);
+      }
+    }
+    
+    function moveToSlide(index) {
+      if (cards.length === 0) return;
+      var gap = 18;
+      var cardWidth = cards[0].getBoundingClientRect().width;
+      var amountToMove = (cardWidth + gap) * index;
+      track.style.transform = 'translateX(-' + amountToMove + 'px)';
+      
+      // Update dots
+      var dots = Array.from(dotsContainer.children);
+      dots.forEach(function (dot, i) {
+        if (i === index) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+      
+      // Disable/Enable buttons
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index >= (cards.length - cardsPerPage);
+    }
+    
+    prevBtn.addEventListener('click', function () {
+      if (currentIndex > 0) {
+        currentIndex--;
+        moveToSlide(currentIndex);
+      }
+    });
+    
+    nextBtn.addEventListener('click', function () {
+      if (currentIndex < (cards.length - cardsPerPage)) {
+        currentIndex++;
+        moveToSlide(currentIndex);
+      }
+    });
+    
+    window.addEventListener('resize', updateLayout);
+    updateLayout();
+  })();
 })();
