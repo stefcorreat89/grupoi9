@@ -34,7 +34,7 @@ var I9_WA = "5585920091906";
     document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
   }
 
-  // formulário -> WhatsApp (sem backend)
+  // formulário -> WhatsApp e E-mail (via FormSubmit AJAX)
   var form = document.getElementById("leadForm");
   if (form) {
     form.addEventListener("submit", function (e) {
@@ -54,6 +54,30 @@ var I9_WA = "5585920091906";
       if (det) msg += "\nDetalhes: " + det;
       msg += "\n\nOrigem: " + pagina; // rastreio de origem do lead
 
+      // 1. Enviar e-mail via FormSubmit em background (AJAX)
+      var emailPayload = {
+        "Nome": nome,
+        "Telefone": fone,
+        "Cidade/Bairro": local,
+        "Serviço solicitado": servico,
+        "Detalhes adicionais": det,
+        "Página de Origem": pagina,
+        "_subject": "Novo Orçamento - Grupo i9 Desentupidora",
+        "_captcha": "false"
+      };
+
+      fetch("https://formsubmit.co/ajax/grupoi9desentupidora@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(emailPayload)
+      }).catch(function (err) {
+        console.error("Erro ao enviar lead por e-mail:", err);
+      });
+
+      // 2. Abrir WhatsApp síncronamente (evita bloqueador de popups)
       var url = "https://wa.me/" + I9_WA +
         "?text=" + encodeURIComponent(msg) +
         "&utm_source=site&utm_medium=whatsapp&utm_campaign=" + encodeURIComponent(pagina);
