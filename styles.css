@@ -1184,7 +1184,10 @@ section.s h2 {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(560px 320px at 90% 0, rgba(24, 182, 201, .26), transparent 60%)
+  background: radial-gradient(560px 320px at 90% 0, rgba(24, 182, 201, .26), transparent 60%),
+              linear-gradient(135deg, oklch(0.28 0.13 255 / 0.82) 0%, oklch(0.4 0.17 250 / 0.88) 55%, oklch(0.5 0.19 255 / 0.92) 100%),
+              url('fotos/fundo_orcamento.webp') no-repeat center center;
+  background-size: auto, auto, cover;
 }
 
 .formsec .wrap {
