@@ -1645,6 +1645,11 @@ footer.ft .wrap {
   height: 19px
 }
 
+
+.sticky .call {
+  background: linear-gradient(135deg, #d92d20, #a41515);
+}
+
 .sticky .wa {
   background: var(--g-wa)
 }
