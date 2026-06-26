@@ -373,12 +373,11 @@ header.nav {
   letter-spacing: -.02em
 }
 
-.shot .seal i {
-  font-style: normal;
-  background: linear-gradient(120deg, #fff, #9fe6ef);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent
+.shot .seal img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  display: block;
 }
 
 /* hero */
@@ -446,7 +445,7 @@ header.nav {
 
 .hero .sub {
   font-size: clamp(16px, 2vw, 20px);
-  color: #aecdd4;
+  color: #fff;
   margin: 20px 0 0;
   max-width: 50ch
 }
