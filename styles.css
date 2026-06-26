@@ -1208,7 +1208,8 @@ section.s h2 {
 }
 
 .formsec h2 {
-  color: #fff
+  color: #fff;
+  font-size: clamp(26px, 3.5vw, 38px);
 }
 
 .formsec .lead {
