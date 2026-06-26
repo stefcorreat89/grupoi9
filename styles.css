@@ -1737,3 +1737,51 @@ footer.ft .wrap {
   margin: 0;
   font-size: 14.5px
 }
+
+/* Differential section (Maquinário de Ponta) */
+.diff-section {
+  background: #fff;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.diff-cards {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.diff-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.diff-card .ic {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--g-cyan);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 18px;
+}
+
+.diff-card h3 {
+  font-size: 16px;
+  font-family: 'Poppins';
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+
+.diff-card p {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--body);
+  line-height: 1.5;
+}
